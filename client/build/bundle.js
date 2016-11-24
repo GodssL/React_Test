@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/assets/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -44,21 +44,21 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
-	 * Created by root on 16-7-21.
-	 */
-	cats = __webpack_require__(1);
-	console.log(cats);
+	module.exports = __webpack_require__(1);
+
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
+	"use strict";
+
 	/**
-	 * Created by root on 16-7-21.
+	 * Created by root on 16-11-24.
 	 */
-	var cats = ['dave', 'henry', 'martha'];
-	module.exports = cats;
+	console.log("hehe");
+	console.log("woqu");
+	console.log("nima");
 
 /***/ }
 /******/ ]);

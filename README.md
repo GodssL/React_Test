@@ -122,7 +122,35 @@ $ node app.bundle.js
 
 ###使用loaders
 
-因为webpack只支持JavaScript的打包, loader的作用主要是把其他资源转化为javascript. 比如babel-loader通过Babel加载ES2015文件
+因为webpack只支持JavaScript的打包, loader的作用主要是把其他资源转化为javascript. 比如babel-loader通过Babel加载ES2015文件, 先安装Babel和presets
+```sh
+$ npm install --save-dev babel-core babel-preset-es2015
+```
+然后安装babel-loader
+```sh
+$ npm install --save-dev babel-loader
+```
+然后新增.babelrc文件, 写入:
+```js
+{ "presets": [ "es2015" ] }
+```
+webpack.config.js改成
+```js
+ module.exports = {
+     entry: './src/app.js',
+     output: {
+         path: './bin',
+         filename: 'app.bundle.js',
+     },
+     module: {
+         loaders: [{
+             test: /\.js$/,
+             exclude: /node_modules/,
+             loader: 'babel-loader'
+         }]
+     }
+ }
+```
 
 ##React 笔记
 
