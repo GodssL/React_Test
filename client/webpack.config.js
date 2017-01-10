@@ -1,20 +1,21 @@
 /*
     path是node的一个对象, resolve是路径寻航, 相当于不断调用cd命令...
  */
-var path = require("path");
+const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
     /*
         入口js
      */
     entry: {
-        app: ["./index.js"]
+        "dll-user": ["./index.js"]
     },
     /*
         支持热加载, 方便调试
      */
     devServer:{
-        inline:true
+        inline: true
     },
     output: {
         /*
@@ -24,9 +25,9 @@ module.exports = {
             当测试的时候我们访问的是publicPath路径下的bundle.js
             真实打包之后我们访问的是build下面的bundle.js文件
          */
-        path: path.resolve(__dirname, "build"),
+        path: path.join(__dirname, "dist"),
         publicPath: "/assets/",
-        filename: "bundle.js"
+        filename: "[name].bundle.js"
     },
     module: {
         loaders: [{
@@ -35,5 +36,8 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel-loader'
         }]
-    }
+    },
+    plugins: [
+        new webpack
+    ]
 };

@@ -51,14 +51,10 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	"use strict";
-
 	/**
 	 * Created by root on 16-11-24.
 	 */
-	console.log("hehe");
-	console.log("woqu");
-	console.log("nima");
+	"use strict";
 
 /***/ }
 /******/ ]);
